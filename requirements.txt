@@ -1,0 +1,7 @@
+Flask
+torch
+scikit-learn
+yfinance
+alpha-vantage
+flask-apscheduler
+python-dotenv
