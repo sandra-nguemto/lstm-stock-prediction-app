@@ -4,8 +4,6 @@ FROM python:3.9-slim
 # Set the working directory inside the container
 WORKDIR /flask_app
 
-ENV ALPHA_VANTAGE_KEY=6RJGC6PQH5MD0NGC
-
 # Copy the application code and custom modules to the container
 COPY app.py /flask_app/
 COPY configs.py /flask_app/
