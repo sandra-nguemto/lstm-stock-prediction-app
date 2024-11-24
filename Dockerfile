@@ -31,4 +31,5 @@ CMD ["python", "app.py"]
 
 # docker build -t lstm-stock-prediction-app .
 # docker run -p 5001:5000 lstm-stock-prediction-app
+# docker run -p 8080:80 lstm-stock-prediction-app 
 # http://localhost:5001/
