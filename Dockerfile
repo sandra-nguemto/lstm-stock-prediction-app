@@ -2,26 +2,25 @@
 FROM python:3.9-slim
 
 # Set the working directory inside the container
-WORKDIR /flask_app
+WORKDIR /lstm-stock-prediction-app
 
 # Copy the application code and custom modules to the container
-COPY app.py /flask_app/
-COPY configs.py /flask_app/
-COPY train.py /flask_app/
-COPY data_preprocess.py /flask_app/
-# COPY s_getdata.py /flask_app/
-COPY getdata.py /flask_app/
-COPY utils.py /flask_app/
-COPY model.py /flask_app/
-COPY Walmart.pth /flask_app/
-COPY Amazon.pth /flask_app/
-COPY Apple.pth /flask_app/
-COPY Kroger.pth /flask_app/
-COPY unseen.pth /flask_app/
-COPY scalers.pth /flask_app/
+COPY app.py /lstm-stock-prediction-app/
+COPY configs.py /lstm-stock-prediction-app/
+COPY train.py /lstm-stock-prediction-app/
+COPY data_preprocess.py /lstm-stock-prediction-app/
+COPY getdata.py /lstm-stock-prediction-app/
+COPY utils.py /lstm-stock-prediction-app/
+COPY model.py /lstm-stock-prediction-app/
+COPY Walmart.pth /lstm-stock-prediction-app/
+COPY Amazon.pth /lstm-stock-prediction-app/
+COPY Apple.pth /lstm-stock-prediction-app/
+COPY Kroger.pth /lstm-stock-prediction-app/
+COPY unseen.pth /lstm-stock-prediction-app/
+COPY scalers.pth /lstm-stock-prediction-app/
 
 # Install necessary Python dependencies
-COPY requirements.txt /flask_app/
+COPY requirements.txt /lstm-stock-prediction-app/
 RUN pip install --no-cache-dir -r requirements.txt 
 
 # Expose the port Flask uses (if running locally on port 5000)
