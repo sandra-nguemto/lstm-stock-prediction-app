@@ -1,6 +1,6 @@
 # Use an official Python runtime as the base image
 FROM python:3.9-slim
-FROM nvidia/cuda:12.2.0-base-ubuntu20.04
+
 
 
 
@@ -34,7 +34,7 @@ COPY requirements.txt /lstm-stock-prediction-app/
 RUN apt-get update && apt-get install -y python3 python3-pip
 
 # Install dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt -i https://pypi.org/simple
+RUN pip3 install --no-cache-dir -r requirements.txt 
 
 
 
@@ -48,3 +48,10 @@ CMD ["python", "app.py"]
 # docker run -p 5001:5000 lstm-stock-prediction-app
 # docker run -p 8080:80 lstm-stock-prediction-app 
 # http://localhost:5001/
+
+# Stage 2: Final image with only necessary files
+FROM python:3.9-slim
+
+WORKDIR /lstm-stock-prediction-app
+
+COPY --from=build /lstm-stock-prediction-app /lstm-stock-prediction-app
