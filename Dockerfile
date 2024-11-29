@@ -1,5 +1,5 @@
 # Use an official Python runtime as the base image
-FROM python:3.9-slim as build
+FROM python:3.9-slim
 
 
 
@@ -29,12 +29,10 @@ COPY app.py configs.py train.py data_preprocess.py getdata.py utils.py model.py 
 COPY requirements.txt /lstm-stock-prediction-app/
 # RUN pip install --no-cache-dir -r requirements.txt 
 # RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.org/simple
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install torch==1.13.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 
-# Install Python and pip
-RUN apt-get update && apt-get install -y python3 python3-pip
-
-# Install dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt 
 
 
 
@@ -49,9 +47,3 @@ CMD ["python", "app.py"]
 # docker run -p 8080:80 lstm-stock-prediction-app 
 # http://localhost:5001/
 
-# Stage 2: Final image with only necessary files
-FROM python:3.9-slim
-
-WORKDIR /lstm-stock-prediction-app
-
-COPY --from=build /lstm-stock-prediction-app /lstm-stock-prediction-app
