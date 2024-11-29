@@ -1,5 +1,6 @@
 Flask
-torch
+# torch
+torch==1.13.0+cpu
 scikit-learn
 alpha-vantage
 flask-apscheduler
