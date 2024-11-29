@@ -7,7 +7,7 @@ env_path = Path('.') / 'api_key.env'
 load_dotenv(dotenv_path=env_path)
 
 config = {"alpha_vantage": {
-        "key": os.getenv("ALPHA_VANTAGE_API_KEY"),
+        "key": os.getenv("ALPHA_VANTAGE_KEY"),
         "outputsize": "full",
         "key_adjusted_close": "4. close",
     },
@@ -27,16 +27,6 @@ config = {"alpha_vantage": {
         "num_epoch": 100,
         "learning_rate": 0.01,
         "scheduler_step_size": 40,
-    },
-    "plots": {
-        "show_plots": True,
-        "xticks_interval": 90,
-        "color_actual": "#001f3f",
-        "color_train": "#3D9970",
-        "color_val": "#0074D9",
-        "color_pred_train": "#3D9970",
-        "color_pred_val": "#0074D9",
-        "color_pred_test": "#FF4136",
     }
 }
 
