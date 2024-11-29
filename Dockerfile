@@ -3,6 +3,7 @@ FROM python:3.9-slim
 FROM nvidia/cuda:12.2.0-base-ubuntu20.04
 
 
+
 # Set the working directory inside the container
 WORKDIR /lstm-stock-prediction-app
 
@@ -27,7 +28,14 @@ COPY app.py configs.py train.py data_preprocess.py getdata.py utils.py model.py 
 # Install necessary Python dependencies
 COPY requirements.txt /lstm-stock-prediction-app/
 # RUN pip install --no-cache-dir -r requirements.txt 
-RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.org/simple
+# RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.org/simple
+
+# Install Python and pip
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# Install dependencies
+RUN pip3 install --no-cache-dir -r requirements.txt -i https://pypi.org/simple
+
 
 
 # Expose the port Flask uses (if running locally on port 5000)
