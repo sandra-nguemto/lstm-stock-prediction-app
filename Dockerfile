@@ -31,7 +31,7 @@ COPY requirements.txt /lstm-stock-prediction-app/
 # RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.org/simple
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install torch==1.13.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
+RUN pip install torch==2.5.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 
 
 
