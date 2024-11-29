@@ -44,5 +44,4 @@ stocks = {'Walmart': 'WMT',
 #           'Alphabet': 'GOOGL',
 #           'Cencora': 'COR',
 #           'JPMorgan Chase & Co.': 'JPM',
-#           'Chevron Corporation': 'CVX',
-#           'Bank of America Corporation': 'BAC'}
+#           'Chevron Corporation': 'CVX'}
