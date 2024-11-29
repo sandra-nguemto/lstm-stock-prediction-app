@@ -1,7 +1,10 @@
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
-load_dotenv()
+env_path = Path('.') / 'api_key.env'
+
+load_dotenv(dotenv_path=env_path)
 
 config = {"alpha_vantage": {
         "key": os.getenv("ALPHA_VANTAGE_API_KEY"),
