@@ -37,7 +37,7 @@ RUN pip install torch==2.3.1+cpu -f https://download.pytorch.org/whl/cpu/torch_s
 
 
 # Expose the port Flask uses (if running locally on port 5000)
-EXPOSE 5000
+# EXPOSE 5000
 
 # Command to run the app
 CMD ["python", "app.py"]
