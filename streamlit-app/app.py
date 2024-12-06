@@ -8,7 +8,7 @@ st.title('Stock Price Prediction')
 
 # Fetch data from flask-app
 
-response = requests.get('http://flask-app:5000/predict')
+response = requests.get('http://flask:5000/predict')
 data = response.json()
 
 
