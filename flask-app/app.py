@@ -52,7 +52,7 @@ def scheduled_task():
 
 #~################################################################
 
-@app.route('/')
+@app.route('/predict', methods=['GET'])
 def predict():
     outputs = {}
     for key in stocks.keys():
