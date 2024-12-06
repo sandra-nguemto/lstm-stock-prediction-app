@@ -22,5 +22,5 @@ stock_data = data.get("outputs", {})
 for key, value in stock_data.items():
     col1, col2 = st.columns([2, 1])  # Create two columns with different widths
     col1.markdown(f"### <span style='color:purple;'>**{key}** </span>", unsafe_allow_html=True)
-    col2.markdown(f"**Predicted Price**<span style='color:black;'>: {value}</span>", unsafe_allow_html=True)
+    col2.markdown(f"**Predicted Price**: {value}")
     st.write("----")  # Add a separator line
