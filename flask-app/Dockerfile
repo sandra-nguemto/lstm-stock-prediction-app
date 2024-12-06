@@ -5,7 +5,7 @@ FROM python:3.9-slim
 
 
 # Set the working directory inside the container
-WORKDIR /lstm-stock-prediction-app
+WORKDIR /lstm-stock-prediction-app/flask-app
 
 # Copy the application code and custom modules to the container
 # COPY app.py /lstm-stock-prediction-app/
@@ -22,11 +22,11 @@ WORKDIR /lstm-stock-prediction-app
 # COPY unseen.pth /lstm-stock-prediction-app/
 # COPY scalers.pth /lstm-stock-prediction-app/
 
-COPY app.py configs.py train.py data_preprocess.py getdata.py utils.py model.py Walmart.pth Amazon.pth Apple.pth Kroger.pth unseen.pth scalers.pth /lstm-stock-prediction-app/
+COPY app.py configs.py train.py data_preprocess.py getdata.py utils.py model.py Walmart.pth Amazon.pth Apple.pth Kroger.pth unseen.pth scalers.pth /lstm-stock-prediction-app/flask-app/
 
 
 # Install necessary Python dependencies
-COPY requirements.txt /lstm-stock-prediction-app/
+COPY requirements.txt /lstm-stock-prediction-app/flask-app/
 # RUN pip install --no-cache-dir -r requirements.txt 
 # RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.org/simple
 RUN pip install --upgrade pip
