@@ -8,7 +8,10 @@ from configs import config, stocks
 from utils import Normalizer, DataPrep
 import torch
 
+import os
 
+save_dir = "/lstm-stock-prediction-app/flask-app/"
+os.makedirs(save_dir, exist_ok=True)
 
 
 #~################################################################    
@@ -40,7 +43,9 @@ class DataPreprocess:
     def scale_data(self):
         for key in self.data.keys():
             self.data[key] = self.scalers[key].fit_transform(self.data[key].reshape(-1, 1)).flatten()
-        torch.save(self.scalers, f"scalers.pth")    
+        # torch.save(self.scalers, f"scalers.pth")
+        scaler_path = os.path.join(save_dir, f"scalers.pth")
+        torch.save(self.scalers, scaler_path)     
         return self.data     
         
 
@@ -53,7 +58,9 @@ class DataPreprocess:
             X_unseen[key], X_train[key], X_test[key], y_train[key], y_test[key] = self.splitting.prepare_data(self.data[key], self.config) 
             X_train[key] = np.expand_dims(X_train[key], axis = 2)
             X_test[key] = np.expand_dims(X_test[key], axis = 2)
-        torch.save(X_unseen, f"unseen.pth")    
+        # torch.save(X_unseen, f"unseen.pth")   
+        unseen_path = os.path.join(save_dir, f"unseen.pth") 
+        torch.save(X_unseen, unseen_path)
         return X_train, X_test, y_train, y_test      
     
 #~################################################################    
