@@ -5,7 +5,7 @@ services:
     ports:
       - "5000:5000"
     env_file:
-      - .env
+      - ./flask-app/api_key.env
     networks:
       - app-network
 
