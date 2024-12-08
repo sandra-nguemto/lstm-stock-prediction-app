@@ -7,6 +7,10 @@ import torch.nn as nn
 from configs import config, stocks
 
 
+import os
+
+save_dir = "/lstm-stock-prediction-app/flask-app/"
+os.makedirs(save_dir, exist_ok=True)
 
 
 
@@ -119,7 +123,9 @@ class TrainerAll():
             print(f"Training {key}-------------------")
             trainer = Trainer(self.config, self.stocks, self.models[key])
             trainer.train(self.train_loader[key], self.test_loader[key])
-            torch.save(self.models[key], f"{key}.pth")    
+            model_path = os.path.join(save_dir, f"{key}.pth")
+            # torch.save(self.models[key], f"{key}.pth")   
+            torch.save(self.models[key], model_path) 
         
 
 

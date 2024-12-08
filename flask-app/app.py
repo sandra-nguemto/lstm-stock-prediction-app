@@ -67,6 +67,13 @@ def predict():
             outputs[key] = scaled_output.tolist()
     return jsonify({'outputs': outputs})
 
+#~################################################################
+@app.route('/retrain', methods=['POST'])
+def retrain():
+    retrain_models()  # Manually call the retrain function
+    return jsonify({"status": "Retraining started!"}), 200
+#~################################################################
+
 
 if __name__ == '__main__':
     scheduler.start()
