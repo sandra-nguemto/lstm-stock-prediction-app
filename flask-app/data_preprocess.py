@@ -11,6 +11,7 @@ import torch
 import os
 
 save_dir = "/lstm-stock-prediction-app/flask-app/"
+# save_dir =  os.getcwd()
 os.makedirs(save_dir, exist_ok=True)
 
 
